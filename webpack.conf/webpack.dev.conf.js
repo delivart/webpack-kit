@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
+const notifier = require('node-notifier');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
     mode: 'development',
@@ -19,6 +20,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         })
     ]
 });
+
+notifier.notify({
+        title: 'Dev mode notifier',
+        message: 'You are using dev mode! May the force be with you!',
+        sound: false,
+        wait: false,
+        timeout: 5
+    },
+    function (err, response) {}
+);
 
 module.exports = new Promise((resolve, reject) => {
     resolve(devWebpackConfig);
