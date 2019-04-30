@@ -12,5 +12,5 @@ import './js/common';
 
 
 $(() => {
-    $('body').css('color', 'blue');
+    // $('body').css('color', 'blue');
 });
